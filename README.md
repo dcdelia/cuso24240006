@@ -13,13 +13,13 @@ The examples come with a `Makefile` for Linux. With enough patience, you can mod
 
 To download Intel Pin, go to [this page](https://www.intel.com/content/www/us/en/developer/articles/tool/pin-a-binary-instrumentation-tool-downloads.html) and download a recent version. From there, you can access also the rich instruction manual for Pin APIs. Pin's distribution contains several exemplary tool to familiarize with the APIs. Another good place where to look for answers is the [Pinheads](https://groups.io/g/pinheads) group. Or, if you attended this seminar, just drop me a line and I may be able to help you out ;-)
 
-For the hands-on, we provide in `assignments/` an incomplete sketch of each tool and a full implementation in `solutions/`. The folder `crash` contains instructions for reproducing a bug well-known among fuzzing researchers using our third Pin tool.
+For the hands-on, we provide in `assignments/` an incomplete sketch of each tool and a full implementation in `solutions/`. The folder `crash` contains instructions for analyzing a bug known among fuzzing researchers.
 
 The `Makefile` we provide assumes that you created a symlink `$HOME/pin` to the install folder where you decompress Pin's archive (e.g., `$HOME/pin-external-3.31-98869-gfa6f126a8-gcc-linux`). Please create one in your system or modify the `PIN_ROOT` variable in the `Makefile`.
 
 Just use `make profiler` to compile the DBI tools. Then, you can launch a tool as follows:
 ```
-$HOME/pin -t obj-intel64/inscounter.so -- <program>
+$HOME/pin/pin -t obj-intel64/inscounter.so -- <program>
 ```
 
 You are now all set. Enjoy!
