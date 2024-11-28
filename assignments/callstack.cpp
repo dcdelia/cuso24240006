@@ -7,7 +7,7 @@
 
 /* Maintain an array of shadow stack nodes */
 typedef struct {
-    ADDRINT routine;    
+    ADDRINT routine;
     ADDRINT callsite;
     ADDRINT retaddr;
 } ss_node_t;
@@ -19,7 +19,7 @@ VOID processCall(ADDRINT routine, ADDRINT callsite, ADDRINT retaddr) {
     // GOAL: add a node to the shadow stack
 
     /* Hint: add a sanity check that you do not exceed the maximum stack depth */
-    
+
     /*** TODO ***/
 }
 
@@ -27,7 +27,7 @@ VOID processRet(ADDRINT* esp) {
     // GOAL: pop a node from the shadow stack
 
     /* Hints:
-       - add a sanity check that an entry actually exists 
+       - add a sanity check that an entry actually exists
        - check that the return address corresponds to the one in the node
     */
 
@@ -42,19 +42,19 @@ void InstructionCallback(INS ins, void *v) {
         //       - return address (i.e., instruction after the call)
 		if (INS_IsDirectCall(ins)) {
             /* Hint: you can use INS_DirectControlFlowTargetAddress() */
-			
+
             /*** TODO ***/
 		}
 		else {
             /* Hint: you can use IARG_BRANCH_TARGET_ADDR */
-			
+
             /*** TODO ***/
 		}
 	} else if (INS_IsRet(ins)) {
         // GOAL: pass the stack pointer value for inspecting the return address
 
         /* Hint: you can use REG_STACK_PTR */
-		
+
         /*** TODO ***/
 	}
 }
@@ -70,7 +70,7 @@ VOID OnContextChange(THREADID threadIndex, CONTEXT_CHANGE_REASON reason, const C
         while (idx) {
             // First frame sees a different treatment
             ADDRINT instr = (idx == shadow_stack_idx) ? eip : shadow_stack[idx].callsite;
-            
+
             // GOAL: print stack entry for instr and any available debug symbol
 
             /* Hints:
@@ -80,7 +80,9 @@ VOID OnContextChange(THREADID threadIndex, CONTEXT_CHANGE_REASON reason, const C
             */
 
             /*** TODO ***/
-            
+
+            if (instr); // REMOVE THIS LINE (needed only to suppress warning)
+
             idx--;
         }
         std::cerr << "Exiting." << std::endl;

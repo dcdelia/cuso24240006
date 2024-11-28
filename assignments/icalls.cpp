@@ -3,8 +3,6 @@
 #include <iostream>
 #include <stdint.h>
 
-static BOOL trackLibs = false;
-
 static std::ofstream traceFile;
 static uint32_t indCallCount;
 
